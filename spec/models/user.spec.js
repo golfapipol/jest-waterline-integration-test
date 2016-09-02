@@ -29,7 +29,7 @@ describe('null', () => {
 
 describe('query user', () => {
   let dbConnection;
-  beforeEach(() => {
+  beforeEach((doneFn) => {
     const waterline = new Waterline();
     waterline.loadCollection(User)
     waterline.initialize(dbTestConfig, function(err, models) {
@@ -42,5 +42,11 @@ describe('query user', () => {
   it('should have model', () => {
     expect(dbConnection).toBeDefined();
   })
+
+  
+  it('dbTestConfig', () => {
+    expect(dbTestConfig).toBeDefined();
+  });
+    
 });
   
